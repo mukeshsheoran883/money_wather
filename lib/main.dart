@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:money_wather/provider/auth_provider.dart';
+import 'package:money_wather/dashboard_screen/provider/money_record_provider.dart';
+import 'package:money_wather/login/provider/auth_provider.dart';
+import 'package:money_wather/login/ui/login_screen.dart';
+
 import 'package:money_wather/shared/app_colors.dart';
 import 'package:money_wather/shared/app_string.dart';
 import 'package:money_wather/shared/database_service.dart';
-import 'package:money_wather/ui/login_screen.dart';
+
 import 'package:provider/provider.dart';
 
 void main() async{
@@ -24,7 +27,11 @@ class MyApp extends StatelessWidget {
       providers: [
   ChangeNotifierProvider(create: (context) {
     return AuthProvider(databaseService);
-  },)
+  },
+  ),
+        ChangeNotifierProvider(create: (context) {
+          return MoneyRecordProvider(databaseService);
+        },)
       ],
       child: MaterialApp(
         title: appName,

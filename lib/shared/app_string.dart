@@ -12,4 +12,14 @@ const String userName = "Name";
 const String nameFieldHint = "Enter your name";
 const String addressHint = "Enter your address";
 const String dataOfBarthHint = "Enter your  data of barth";
-
+const String addMonetTitleText = "Add Transaction";
+const String hintTextTitle = "Title";
+const String hintTextAmount = "Amount";
+const String labelTextCategory = "Category";
+const String selectDateText = "Select Date";
+const String radioTextIncome = "Income";
+const String radioTextExpense = "Expense";
+const String textButton = "Add Record";
+const String toastTest = "Record added";
+const String date = "Date";
+const String category = "Category";

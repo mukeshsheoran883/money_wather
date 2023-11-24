@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:money_wather/dashboard_screen/ui/dashboard_screen.dart';
-import 'package:money_wather/model/user.dart';
-import 'package:money_wather/provider/auth_provider.dart';
+import 'package:money_wather/login/model/user.dart';
+import 'package:money_wather/login/provider/auth_provider.dart';
+import 'package:money_wather/login/ui/register_screen.dart';
+
+
 import 'package:money_wather/shared/app_colors.dart';
 import 'package:money_wather/shared/app_string.dart';
 import 'package:money_wather/shared/app_text_field.dart';
-import 'package:money_wather/ui/register_screen.dart';
+
 import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {

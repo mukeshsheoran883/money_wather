@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:money_wather/model/user.dart';
-import 'package:money_wather/provider/auth_provider.dart';
+import 'package:money_wather/login/model/user.dart';
+import 'package:money_wather/login/provider/auth_provider.dart';
+
 import 'package:money_wather/shared/app_colors.dart';
 import 'package:money_wather/shared/app_string.dart';
 import 'package:money_wather/shared/app_text_field.dart';

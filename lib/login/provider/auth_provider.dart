@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:money_wather/model/user.dart';
+import 'package:money_wather/login/model/user.dart';
+
 import 'package:money_wather/shared/app_util.dart';
 import 'package:money_wather/shared/database_service.dart';
 
