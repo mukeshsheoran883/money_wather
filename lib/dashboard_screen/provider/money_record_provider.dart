@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:money_wather/dashboard_screen/model/money_record_model.dart';
+import 'package:money_wather/shared/app_util.dart';
 import 'package:money_wather/shared/database_service.dart';
 
 
@@ -34,6 +35,35 @@ class MoneyRecordProvider extends ChangeNotifier {
       notifyListeners();
     } catch (e) {
       error = e.toString();
+    } finally {
+      isLoading = false;
+      notifyListeners();
+    }
+  }
+
+  Future editMoneyRecord(MoneyRecord moneyRecord) async {
+    try {
+      error = null;
+      isLoading = true;
+      notifyListeners();
+      await databaseService.editMoneyRecord(moneyRecord);
+    } catch (e) {
+      error = e.toString();
+    } finally {
+      isLoading = false;
+      notifyListeners();
+    }
+  }
+
+  Future deleteMoneyRecord(int id) async {
+    try {
+      error = null;
+      isLoading = true;
+      notifyListeners();
+      await databaseService.deleteMoneyRecord(id);
+    } catch (e) {
+      error = e.toString();
+      AppUtil.showToast(error!);
     } finally {
       isLoading = false;
       notifyListeners();

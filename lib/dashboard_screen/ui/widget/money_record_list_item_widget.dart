@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:money_wather/dashboard_screen/model/money_record_model.dart';
 
 class MoneyRecordListItemWidget extends StatelessWidget {
-  const MoneyRecordListItemWidget({super.key, required this.moneyRecord});
+  const MoneyRecordListItemWidget({super.key, required this.moneyRecord, required Null Function(MoneyRecord record) onTap});
 
   final MoneyRecord moneyRecord;
+
 
   @override
   Widget build(BuildContext context) {

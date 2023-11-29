@@ -23,3 +23,6 @@ const String textButton = "Add Record";
 const String toastTest = "Record added";
 const String date = "Date";
 const String category = "Category";
+const String editMoneyTitleText = "Edit Money Screen";
+const String editTextButton = "Edit Money ";
+const String recordEditMsg = "Edit Money Successfully ";

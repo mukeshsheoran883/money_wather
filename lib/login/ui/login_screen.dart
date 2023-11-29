@@ -3,12 +3,9 @@ import 'package:money_wather/dashboard_screen/ui/dashboard_screen.dart';
 import 'package:money_wather/login/model/user.dart';
 import 'package:money_wather/login/provider/auth_provider.dart';
 import 'package:money_wather/login/ui/register_screen.dart';
-
-
 import 'package:money_wather/shared/app_colors.dart';
 import 'package:money_wather/shared/app_string.dart';
 import 'package:money_wather/shared/app_text_field.dart';
-
 import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -157,7 +154,7 @@ class _LoginScreenState extends State<LoginScreen> {
     bool isExist = await authProvider.isUserExists(user);
     if (isExist && mounted) {
       Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return const DashboardScreen();
+        return const DashBoardScreen();
       }));
     }
   }
