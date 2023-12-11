@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:money_wather/dashboard_screen/ui/dashboard_screen.dart';
-import 'package:money_wather/login/model/user.dart';
-import 'package:money_wather/login/provider/auth_provider.dart';
-import 'package:money_wather/login/ui/register_screen.dart';
-import 'package:money_wather/shared/app_colors.dart';
-import 'package:money_wather/shared/app_string.dart';
-import 'package:money_wather/shared/app_text_field.dart';
+import 'package:money_wather/data_base/dashboard_screen/ui/dashboard_screen.dart';
+import 'package:money_wather/data_base/login/model/user.dart';
+import 'package:money_wather/data_base/login/provider/auth_provider.dart';
+import 'package:money_wather/data_base/login/ui/register_screen.dart';
+import 'package:money_wather/data_base/shared/app_colors.dart';
+import 'package:money_wather/data_base/shared/app_string.dart';
+import 'package:money_wather/data_base/shared/app_text_field.dart';
 import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -26,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
         builder: (BuildContext context, authProvider, widget) {
           return Center(
             child: SingleChildScrollView(
-              child: Container(
+              child: SizedBox(
                 height: MediaQuery
                     .of(context)
                     .size
@@ -145,7 +145,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Future loginUser() async {
-    User user = User(
+    UserModel user = UserModel(
         email: emailController.text,
         password: passwordController.text,
         );

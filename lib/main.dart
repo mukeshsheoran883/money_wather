@@ -1,16 +1,21 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:money_wather/dashboard_screen/provider/money_record_provider.dart';
-import 'package:money_wather/dashboard_screen/ui/dashboard_screen.dart';
-import 'package:money_wather/login/provider/auth_provider.dart';
-
-import 'package:money_wather/shared/app_colors.dart';
-import 'package:money_wather/shared/app_string.dart';
-import 'package:money_wather/shared/database_service.dart';
+import 'package:money_wather/data_base/dashboard_screen/provider/money_record_provider.dart';
+import 'package:money_wather/data_base/firebase_auth_service/auth_service.dart';
+import 'package:money_wather/data_base/login/provider/auth_provider.dart';
+import 'package:money_wather/data_base/login/ui/login_screen.dart';
+import 'package:money_wather/data_base/shared/app_colors.dart';
+import 'package:money_wather/data_base/shared/app_string.dart';
+import 'package:money_wather/data_base/shared/database_service.dart';
+import 'package:money_wather/firebase_options.dart';
 
 import 'package:provider/provider.dart';
 
-void main() async {
+Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   DatabaseService databaseService = DatabaseService();
   await databaseService.initDatabase();
   runApp(MyApp(
@@ -30,7 +35,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (context) {
-            return AuthProvider(databaseService);
+            return AuthProvider(AuthService());
           },
         ),
         ChangeNotifierProvider(
@@ -45,7 +50,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: appColorScheme),
           useMaterial3: true,
         ),
-        home: const DashBoardScreen(),
+        home: const LoginScreen(),
         debugShowCheckedModeBanner: false,
       ),
     );
