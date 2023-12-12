@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "992693178478",
+    "firebase_url": "https://auth-demo-98847-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "auth-demo-98847",
+    "storage_bucket": "auth-demo-98847.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:992693178478:android:711e413f06e98f4c7e167f",
+        "android_client_info": {
+          "package_name": "com.example.firebase_auth_demo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAX_CS8hezJp1ENqxHax9yXXxefkDLpe4M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:992693178478:android:8af077322fc4190b7e167f",
+        "android_client_info": {
+          "package_name": "com.example.money_wather"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAX_CS8hezJp1ENqxHax9yXXxefkDLpe4M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

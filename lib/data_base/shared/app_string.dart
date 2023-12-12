@@ -41,3 +41,6 @@ const String moneyRecordChart = "Money Record Chart";
 const String referenceText = "money_record";
 const String invalidDataText = "Invalid data";
 const String dataNotFoundText = "Data not found";
+const String addMoneyTitleText = "Add Money Record";
+const String addTextButton = "Add Record";
+const String recordAddMsg = "Record added successfully!";
