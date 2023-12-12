@@ -26,63 +26,72 @@ class ShowMoneyRecordScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            Card(
-              child: ListTile(
-                title: const Text(
-                  '$category :',
-                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
-                ),
-                trailing: Text(
-                  moneyRecord.category,
-                  style: const TextStyle(fontSize: 18),
-                ),
-              ),
-            ),
-            Card(
-              child: ListTile(
-                title: const Text(
-                  '$date :',
-                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
-                ),
-                trailing: Text(
-                  _formatDate(moneyRecord.date),
-                  style: const TextStyle(fontSize: 18),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Card(
+                child: ListTile(
+                  title: const Text(
+                    '$category :',
+                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
+                  ),
+                  trailing: Text(
+                    moneyRecord.category,
+                    style: const TextStyle(fontSize: 18),
+                  ),
                 ),
               ),
-            ),
-            Card(
-              child: ListTile(
-                title: const Text(
-                  '$hintTextTitle :',
-                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
-                ),
-                trailing: Text(
-                  moneyRecord.title,
-                  style: const TextStyle(fontSize: 18),
-                ),
-              ),
-            ),
-            Card(
-              child: ListTile(
-                title: const Text(
-                  '$hintTextAmount :  ',
-                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
-                ),
-                trailing: Text(
-                  '${moneyRecord.amount}',
-                  style: const TextStyle(fontSize: 18),
+              Card(
+                child: ListTile(
+                  title: const Text(
+                    '$date :',
+                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
+                  ),
+                  trailing: Text(
+                    _formatDate(moneyRecord.date),
+                    style: const TextStyle(fontSize: 18),
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(height: 6,),
-            if (moneyRecord.path.isNotEmpty)
-              SizedBox(
-                  height: MediaQuery.of(context).size.height * .55,
+              Card(
+                child: ListTile(
+                  title: const Text(
+                    '$hintTextTitle :',
+                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
+                  ),
+                  trailing: Text(
+                    moneyRecord.title,
+                    style: const TextStyle(fontSize: 18),
+                  ),
+                ),
+              ),
+              Card(
+                child: ListTile(
+                  title: const Text(
+                    '$hintTextAmount :  ',
+                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
+                  ),
+                  trailing: Text(
+                    '${moneyRecord.amount}',
+                    style: const TextStyle(fontSize: 18),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 6,
+              ),
+              if (moneyRecord.path.isNotEmpty)
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * .6,
                   width: MediaQuery.of(context).size.width * 0.88,
-                  child: Image.file(File(moneyRecord.path),fit: BoxFit.fill,)),
-          ],
+                  child: Image.file(
+                    File(
+                      moneyRecord.path,
+                    ),
+                  ),
+                ),
+            ],
+          ),
         ),
       ),
     );
