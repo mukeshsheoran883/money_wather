@@ -1,7 +1,9 @@
-import 'package:money_wather/dashboard_screen/model/money_record_model.dart';
-import 'package:money_wather/login/model/user.dart';
+import 'package:flutter/foundation.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
+
+import '../dashboard_screen/model/money_record_model.dart';
+import '../login/model/user.dart';
 
 class DatabaseService {
   static const String userTableName = 'user';
@@ -35,7 +37,7 @@ class DatabaseService {
         'password text)');
   }
 
-  Future registerUser(User user) async {
+  Future registerUser(UserModel user) async {
     // await database.rawInsert(
     //     "insert into $userTableName values('${user.email}','${user.name}','${user.password}')");
     await database.rawInsert('insert into $userTableName values(?,?,?)',
@@ -43,7 +45,7 @@ class DatabaseService {
     print('User added successfully');
   }
 
-  Future<bool> isUserExists(User user) async {
+  Future<bool> isUserExists(UserModel user) async {
     List list = await database
         .rawQuery('select * from $userTableName where email=? AND password=?', [
       user.email,
@@ -67,9 +69,36 @@ class DatabaseService {
           moneyRecord.date,
           moneyRecord.type.toString(),
         ]);
-    print('Money Record added successfully');
+    if (kDebugMode) {
+      print('Money Record added successfully');
+    }
+  }
+  Future<void> editMoneyRecord(MoneyRecord record) async {
+    await database.rawUpdate(
+      '''
+      UPDATE $moneyRecordTableName 
+      SET title = ?, amount = ?, category = ?, date = ?, type = ? 
+      WHERE id = ?
+      ''',
+      [
+        record.title,
+        record.amount,
+        record.category,
+        record.date,
+        record.type.toString(),
+        record.id,
+      ],
+    );
+    print('Money Record updated successfully');
   }
 
+  Future deleteMoneyRecord(int id) async {
+    await database.rawInsert(
+      'delete from $moneyRecordTableName where id=?',
+      [id],
+    );
+    print('Money Record deleted successfully');
+  }
   Future<List<MoneyRecord>> getMoneyRecords() async {
     List<Map<String, dynamic>> records =
     await database.rawQuery('Select * from $moneyRecordTableName');
