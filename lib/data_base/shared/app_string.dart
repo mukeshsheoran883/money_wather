@@ -38,3 +38,6 @@ const String moneyRecordDeleteContentText = "Are you sure want to delete this?";
 const String moneyRecordDeleteButtonText = "Cancel";
 const String moneyRecordDeleteButtonTextOkay = "Okay";
 const String moneyRecordChart = "Money Record Chart";
+const String referenceText = "money_record";
+const String invalidDataText = "Invalid data";
+const String dataNotFoundText = "Data not found";
