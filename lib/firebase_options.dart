@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -28,10 +25,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -48,6 +42,16 @@ class DefaultFirebaseOptions {
         );
     }
   }
+
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyDbMxRhk9l3FdbLLz8TMuAryvtINUkFEY8',
+    appId: '1:992693178478:web:6187e1a573d393ba7e167f',
+    messagingSenderId: '992693178478',
+    projectId: 'auth-demo-98847',
+    authDomain: 'auth-demo-98847.firebaseapp.com',
+    databaseURL: 'https://auth-demo-98847-default-rtdb.asia-southeast1.firebasedatabase.app',
+    storageBucket: 'auth-demo-98847.appspot.com',
+  );
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyAX_CS8hezJp1ENqxHax9yXXxefkDLpe4M',
@@ -66,5 +70,15 @@ class DefaultFirebaseOptions {
     databaseURL: 'https://auth-demo-98847-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'auth-demo-98847.appspot.com',
     iosBundleId: 'com.example.moneyWather',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyD5AZpLhQe-g_0q5kGXKfODneWK-D3LJEE',
+    appId: '1:992693178478:ios:e9ad95b0b43db3b87e167f',
+    messagingSenderId: '992693178478',
+    projectId: 'auth-demo-98847',
+    databaseURL: 'https://auth-demo-98847-default-rtdb.asia-southeast1.firebasedatabase.app',
+    storageBucket: 'auth-demo-98847.appspot.com',
+    iosBundleId: 'com.example.moneyWather.RunnerTests',
   );
 }

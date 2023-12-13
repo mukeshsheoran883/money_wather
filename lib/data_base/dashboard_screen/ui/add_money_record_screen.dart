@@ -123,7 +123,7 @@ class AddMoneyRecordScreenState extends State<AddMoneyRecordScreen> {
                   ),
                 ],
               ),
-              // buildImageList(),
+              Center(child: buildImageList()),
               const SizedBox(height: 80),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -207,6 +207,33 @@ class AddMoneyRecordScreenState extends State<AddMoneyRecordScreen> {
   //     ),
   //   );
   // }
+
+  Widget buildImageList() {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Center(
+        child: Container(
+          height: 150,
+          width: 250,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: imagePath.isNotEmpty ? 1 : 0,
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: Image.file(
+                  File(imagePath),
+                  width: 100,
+                  height: 100,
+                  fit: BoxFit.cover,
+                ),
+              );
+            },
+          ),
+        ),
+      ),
+    );
+  }
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
